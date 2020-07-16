@@ -127,6 +127,8 @@ jobs:
           CONFIG_PACKAGE_smartdns=y
           CONFIG_PACKAGE_luci-app-smartdns=y
           CONFIG_PACKAGE_luci-app-oled=y
+          CONFIG_PACKAGE_chinadns-ng=y
+          CONFIG_PACKAGE_luci-app-chinadns-ng=y
           ' >> configs/config_rk3328
           cd friendlywrt
           git config --local user.email "action@github.com" && git config --local user.name "GitHub Action"
@@ -168,7 +170,7 @@ jobs:
           mv ../../scripts/autoupdate.sh package/base-files/files/root/au.sh && chmod +x package/base-files/files/root/au.sh
           echo -e '\nDYC Build\n' >> package/base-files/files/etc/banner
 
-      - name: Add OpenClash SmartDNS Oled
+      - name: Add OpenClash SmartDNS Oled Chinadns-ng
         run: |
           git clone -b master https://github.com/vernesong/OpenClash.git
           echo '
@@ -491,10 +493,14 @@ jobs:
           cat smartdns/package/openwrt/custom.conf > openwrt/package/ntlf9t/smartdns/conf/custom.conf
           git clone -b master https://github.com/NateLol/luci-app-oled.git
           sed -i "s/option enable '0'/option enable '1'/g" luci-app-oled/root/etc/config/oled
+          git clone -b master https://github.com/pexcn/openwrt-chinadns-ng.git chinadns-ng
+          git clone -b luci https://github.com/pexcn/openwrt-chinadns-ng.git luci-app-chinadns-ng
           mv OpenClash/luci-app-openclash friendlywrt-rk3328/friendlywrt/package
           mv openwrt/package/ntlf9t/luci-app-smartdns friendlywrt-rk3328/friendlywrt/package
           mv openwrt/package/ntlf9t/smartdns friendlywrt-rk3328/friendlywrt/package
           mv luci-app-oled friendlywrt-rk3328/friendlywrt/package
+          mv chinadns-ng friendlywrt-rk3328/friendlywrt/package
+          mv luci-app-chinadns-ng friendlywrt-rk3328/friendlywrt/package
           cd friendlywrt-rk3328/friendlywrt/package/base-files/files
           mkdir -p etc/openclash/core && cd etc/openclash/core
           curl -L https://github.com/vernesong/OpenClash/releases/download/TUN/clash-linux-armv8.tar.gz | tar zxf -
