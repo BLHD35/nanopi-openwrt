@@ -501,9 +501,9 @@ jobs:
           chmod +x clash_game
           curl -L https://github.com/vernesong/OpenClash/releases/download/Clash/clash-linux-armv8.tar.gz | tar zxf -
           chmod +x clash
-          curl -OL https://github.com/vernesong/OpenClash/releases/download/TUN-Premium/clash-linux-armv8-2020.07.11.gfce03ee.gz
-          gzip -d clash-linux-armv8-2020.07.11.gfce03ee.gz
-          mv clash-linux-armv8-2020.07.11.gfce03ee clash_tun
+          curl -OL https://github.com/vernesong/OpenClash/releases/download/TUN-Premium/clash-linux-armv8-2020.07.22.ge8431c7.gz
+          gzip -d clash-linux-armv8-2020.07.22.ge8431c7.gz
+          mv clash-linux-armv8-2020.07.22.ge8431c7 clash_tun
           chmod +x clash_tun
 
       - name: Add Passwall
