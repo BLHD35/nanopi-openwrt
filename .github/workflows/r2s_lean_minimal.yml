@@ -186,7 +186,7 @@ jobs:
           	option proxy_mode 'Rule'
           	option lan_ac_mode '0'
           	option config_path '/etc/openclash/config/config.yaml'
-          	option enable_udp_proxy '1'
+          	option enable_udp_proxy '0'
           	option core_version 'linux-armv8'
           	option enable_rule_proxy '1'
           	option intranet_allowed '1'
@@ -501,9 +501,9 @@ jobs:
           chmod +x clash_game
           curl -L https://github.com/vernesong/OpenClash/releases/download/Clash/clash-linux-armv8.tar.gz | tar zxf -
           chmod +x clash
-          curl -OL https://github.com/vernesong/OpenClash/releases/download/TUN-Premium/clash-linux-armv8-2020.07.22.ge8431c7.gz
-          gzip -d clash-linux-armv8-2020.07.22.ge8431c7.gz
-          mv clash-linux-armv8-2020.07.22.ge8431c7 clash_tun
+          curl -OL https://github.com/vernesong/OpenClash/releases/download/TUN-Premium/clash-linux-armv8-2020.07.24.g42c533f.gz
+          gzip -d clash-linux-armv8-2020.07.24.g42c533f.gz
+          mv clash-linux-armv8-2020.07.24.g42c533f clash_tun
           chmod +x clash_tun
 
       - name: Add Passwall
