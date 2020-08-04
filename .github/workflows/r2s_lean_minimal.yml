@@ -534,8 +534,6 @@ jobs:
           sed -i "s/option enable '0'/option enable '1'/g" luci-app-oled/root/etc/config/oled
           mv OpenClash/luci-app-openclash friendlywrt-rk3328/friendlywrt/package
           git clone -b lede --single-branch https://github.com/pymumu/luci-app-smartdns friendlywrt-rk3328/friendlywrt/package/luci-app-smartdns
-          sed -i "s/PKG_VERSION:=5.2020.10/PKG_VERSION:=8.2020.3/g" friendlywrt-rk3328/friendlywrt/package/luci-app-smartdns/Makefile
-          sed -i "s/PKG_SOURCE_VERSION:=ce46ac58a7a30e122566e75438d1ddbb0d569f9a/PKG_SOURCE_VERSION:=c23ec7ea8f6c075fef7d4f8c82c5771ca1bd3567/g" friendlywrt-rk3328/friendlywrt/package/luci-app-smartdns/Makefile
           mv openwrt/package/ntlf9t/smartdns friendlywrt-rk3328/friendlywrt/package
           mv luci-app-oled friendlywrt-rk3328/friendlywrt/package
           cd friendlywrt-rk3328/friendlywrt/package/base-files/files
