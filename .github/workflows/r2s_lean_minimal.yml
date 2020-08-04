@@ -127,7 +127,6 @@ jobs:
           # CONFIG_PACKAGE_luci-app-sfe is not set
           CONFIG_PACKAGE_smartdns=y
           CONFIG_PACKAGE_luci-app-smartdns=y
-          CONFIG_PACKAGE_luci-app-oled=y
           ' >> configs/config_rk3328
           cd friendlywrt
           git config --local user.email "action@github.com" && git config --local user.name "GitHub Action"
@@ -147,6 +146,7 @@ jobs:
           sed -i -E 's/#(src-git.+)(helloworld.+)/\1\2/' feeds.conf.default
           cd package/lean/
           git clone https://github.com/NateLol/luci-app-oled
+          sed -i "s/option enable '0'/option enable '1'/g" luci-app-oled/root/etc/config/oled
           #git clone https://github.com/jerrykuku/lua-maxminddb.git
           #git clone https://github.com/jerrykuku/luci-app-vssr.git
           #cd luci-app-vssr/root/etc/
@@ -530,8 +530,6 @@ jobs:
           git clone -b openwrt-18.06-dev https://github.com/project-openwrt/openwrt.git
           cat smartdns/package/openwrt/files/etc/config/smartdns > openwrt/package/ntlf9t/smartdns/conf/smartdns.conf
           cat smartdns/package/openwrt/custom.conf > openwrt/package/ntlf9t/smartdns/conf/custom.conf
-          git clone -b master https://github.com/NateLol/luci-app-oled.git
-          sed -i "s/option enable '0'/option enable '1'/g" luci-app-oled/root/etc/config/oled
           mv OpenClash/luci-app-openclash friendlywrt-rk3328/friendlywrt/package
           git clone -b lede --single-branch https://github.com/pymumu/luci-app-smartdns friendlywrt-rk3328/friendlywrt/package/luci-app-smartdns
           mv openwrt/package/ntlf9t/smartdns friendlywrt-rk3328/friendlywrt/package
