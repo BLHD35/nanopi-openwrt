@@ -172,7 +172,7 @@ jobs:
           mv ../../scripts/autoupdate.sh package/base-files/files/root/au.sh && chmod +x package/base-files/files/root/au.sh
           echo -e '\nDYC Build\n' >> package/base-files/files/etc/banner
 
-      - name: Add OpenClash SmartDNS Oled
+      - name: Add OpenClash SmartDNS
         run: |
           git clone -b master https://github.com/vernesong/OpenClash.git
           echo '
